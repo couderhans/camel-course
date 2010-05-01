@@ -26,7 +26,19 @@
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
   <camel:camelContext xmlns="http://camel.apache.org/schema/spring">
+
     <camel:package>be.anova.course.camel.RouteBuilders</camel:package>
+    
+    <camel:route>
+      <camel:from uri="file:src/data/in"/>
+        <camel:process  ref="myProcessor" />
+      <camel:to uri="file:src/data/out"/>
+    </camel:route>
+    
+    
   </camel:camelContext>
+  
+  <bean id="myProcessor" class="be.anova.course.camel.MyProcessor" />
+  
 
 </beans>

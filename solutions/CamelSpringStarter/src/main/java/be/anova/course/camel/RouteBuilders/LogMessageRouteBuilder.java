@@ -15,7 +15,7 @@ public class LogMessageRouteBuilder extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
     
-        from("timer:test").process(new Processor() {
+        from("timer://test?fixedRate=true&period=5000").process(new Processor() {
 			public void process(Exchange exchange) throws Exception {
                 exchange.getIn().setBody(DATE_FORMAT.format(new Date()));
             }
