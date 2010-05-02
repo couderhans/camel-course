@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders>
+  <order externalid="ORD1968">
+    <date type="creation">2010-05-02</date>
+    <date type="delivery">2010-05-04</date>
+    <customer name="Scotch Fan Club Leuven" country="Belgium" />
+    <delivery id="2"/>
+    <additional>
+      <field name="Supplier/NAME" value="SUP-AnovaTest"/>
+      <field name="REFERENCEID" value="BEL54654"/>
+    </additional>
+    <lines>
+      <line>
+        <article id="290516"/>
+        <quantity>3</quantity>
+        <additional>
+          <field name="COLLINUM" value="27992"/>
+          <field name="DESCRIPTN" value="Laphroaig Single Malt"/>
+         <freetext/>
+        </additional>
+      </line>
+    </lines>
+  </order>
+  <order externalid="ORD1969">
+    <date type="creation">2010-05-02</date>
+    <date type="delivery">2010-05-04</date>
+    <customer name="Scotch Fan Club Leuven" country="Belgium" />
+    <delivery id="3"/>
+    <additional>
+      <field name="Supplier/NAME" value="SUP-AnovaTest"/>
+      <field name="REFERENCEID" value="BEL54654"/>
+    </additional>
+    <lines>
+      <line>
+        <article id="265416"/>
+        <quantity>33</quantity>
+        <additional>
+          <field name="COLLINUM" value="272"/>
+          <field name="DESCRIPTN" value="Glenmorangie"/>
+         <freetext/>
+        </additional>
+      </line>
+    </lines>
+  </order>
+  <order externalid="ORD1970">
+    <date type="creation">2010-05-02</date>
+    <date type="delivery">2010-05-04</date>
+    <customer name="Scotch Fan Club Leuven" country="Belgium" />
+    <delivery id="52"/>
+    <additional>
+      <field name="Supplier/NAME" value="SUP-AnovaTest"/>
+      <field name="REFERENCEID" value="BEL54654"/>
+    </additional>
+    <lines>
+      <line>
+        <article id="290516"/>
+        <quantity>3</quantity>
+        <additional>
+          <field name="COLLINUM" value="27857"/>
+          <field name="DESCRIPTN" value="Bowmore Legend"/>
+         <freetext/>
+        </additional>
+      </line>
+    </lines>
+  </order>
+</orders>
+
