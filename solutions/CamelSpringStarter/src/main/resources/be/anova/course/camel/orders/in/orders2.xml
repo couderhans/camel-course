@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<orders xmlns="http://www.anova.be/schemata/Order/v1">
+<orders>
   <order externalid="ORD1968">
     <date type="creation">2010-05-02</date>
     <date type="delivery">2010-05-04</date>
-    <customer name="Scotch Fan Club Leuven" country="Belgium" />
+    <customer name="International Trappist Beer Drinkers of Aberdeen" country="Scotland" />
     <delivery id="2"/>
     <additional>
       <field name="Supplier/NAME" value="SUP-AnovaTest"/>
@@ -15,7 +15,7 @@
         <quantity>3</quantity>
         <additional>
           <field name="COLLINUM" value="27992"/>
-          <field name="DESCRIPTN" value="Laphroaig Single Malt"/>
+          <field name="DESCRIPTN" value="Westmalle"/>
          <freetext/>
         </additional>
       </line>
@@ -24,7 +24,7 @@
   <order externalid="ORD1969">
     <date type="creation">2010-05-02</date>
     <date type="delivery">2010-05-04</date>
-    <customer name="Scotch Fan Club Leuven" country="Belgium" />
+    <customer name="International Trappist Beer Drinkers of Aberdeen" country="Scotland" />
     <delivery id="3"/>
     <additional>
       <field name="Supplier/NAME" value="SUP-AnovaTest"/>
@@ -35,8 +35,8 @@
         <article id="265416"/>
         <quantity>33</quantity>
         <additional>
-          <field name="COLLINUM" value="272"/>
-          <field name="DESCRIPTN" value="Glenmorangie"/>
+          <field name="COLLINUM" value="24172"/>
+          <field name="DESCRIPTN" value="Achel"/>
          <freetext/>
         </additional>
       </line>
@@ -45,7 +45,7 @@
   <order externalid="ORD1970">
     <date type="creation">2010-05-02</date>
     <date type="delivery">2010-05-04</date>
-    <customer name="Scotch Fan Club Leuven" country="Belgium" />
+    <customer name="International Trappist Beer Drinkers of Aberdeen" country="Scotland" />
     <delivery id="52"/>
     <additional>
       <field name="Supplier/NAME" value="SUP-AnovaTest"/>
@@ -56,8 +56,8 @@
         <article id="290516"/>
         <quantity>3</quantity>
         <additional>
-          <field name="COLLINUM" value="27857"/>
-          <field name="DESCRIPTN" value="Bowmore Legend"/>
+          <field name="COLLINUM" value="21477"/>
+          <field name="DESCRIPTN" value="Orval"/>
          <freetext/>
         </additional>
       </line>
