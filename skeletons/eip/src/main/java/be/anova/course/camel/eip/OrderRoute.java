@@ -26,27 +26,7 @@ public class OrderRoute extends RouteBuilder {
     
     @Override
     public void configure() throws Exception {
-        from("file:src/main/resources/orders?noop=true")
-                .wireTap("file:target/orders/audit")
-                .to("direct:orders");
-
-        from("direct:orders").split().xpath("//orders/order")
-                .convertBodyTo(String.class).to("direct:qty").to("log:order");
-        
-        from("direct:qty")
-            .choice().when().xpath("//order/articles/article/quantity='0'")
-            .to("log:empty-orders")
-            .otherwise().to("direct:order");
-
-        from("direct:order")
-                .setHeader("externalid",xpath("/order/@externalid"))
-                .setHeader(Exchange.FILE_NAME,simpleExpression("${header.externalid}.xml"))
-                .choice().when().xpath("//order/customer/@country='Scotland'")
-                .to("file:target/orders/Scotland")
-                .when().xpath("//order/customer/@country='Belgium'")
-                .to("file:target/orders/Belgium")
-                .otherwise().to("file:target/orders/Other");
-
+        //TODO: implement your Camel routes here if you prefer the Java DSL
     }
 
 }

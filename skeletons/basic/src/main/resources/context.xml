@@ -20,15 +20,10 @@ permissions and limitations under the License.
 
     <camel:package>be.anova.course.camel.basic</camel:package>
 
-    <camel:route>
-      <camel:from uri="file:src/main/resources/messages?noop=true" />
-      <camel:process ref="myProcessor" />
-      <camel:to uri="file:target/output" />
-    </camel:route>
+    <!-- TODO: implement your routes here if you choose the Spring DSL
+               - timer: -> processor (add timetamp) -> log:
+               - file: -> processor (write to log) -> file: -->
 
   </camel:camelContext>
-
-  <bean id="myProcessor" class="be.anova.course.camel.basic.MyProcessor" />
-
 
 </beans>
