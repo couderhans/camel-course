@@ -1,4 +1,4 @@
-package be.anova.course.camel;
+package be.anova.course.camel.basic;
 
 /*
  * (c) 2010, anova r&d bvba. All rights reserved.

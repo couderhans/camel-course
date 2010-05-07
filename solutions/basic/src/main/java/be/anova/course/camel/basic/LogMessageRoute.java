@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-package be.anova.course.camel.routebuilders;
-
+package be.anova.course.camel.basic;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

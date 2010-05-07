@@ -1,5 +1,3 @@
-package be.anova.course.camel;
-
 /*
  * (c) 2010, anova r&d bvba. All rights reserved.
  *
@@ -15,25 +13,19 @@ package be.anova.course.camel;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package be.anova.course.camel.basic;
 
-import org.apache.activemq.broker.BrokerService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class CamelSpringStarter {
+public class Main {
 
     public static void main(String[] args) {
         try {
-            BrokerService broker = new BrokerService();
-            broker.setBrokerName("CamelExercises");
-            broker.addConnector("tcp://localhost:61616");
-            broker.start();
-
             ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
 
             Thread.sleep(60000);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
