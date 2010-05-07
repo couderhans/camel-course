@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package be.anova.course.camel;
+package be.anova.course.camel.components;
 
 import org.apache.activemq.broker.BrokerService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class CamelSpringStarter {
+public class Main {
 
     public static void main(String[] args) {
         try {
