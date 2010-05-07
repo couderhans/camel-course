@@ -1,5 +1,3 @@
-package be.anova.course.camel.basic;
-
 /*
  * (c) 2010, anova r&d bvba. All rights reserved.
  *
@@ -15,6 +13,7 @@ package be.anova.course.camel.basic;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package be.anova.course.camel.basic;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;

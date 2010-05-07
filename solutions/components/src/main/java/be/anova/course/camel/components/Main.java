@@ -21,21 +21,17 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
-    public static void main(String[] args) {
-        try {
+    public static void main(String[] args) throws Exception {
+        BrokerService broker = new BrokerService();
+        broker.setBrokerName("CamelComponentExercise");
+        broker.setPersistent(false);
+        broker.setUseJmx(false);
+        broker.start();
 
-            BrokerService broker = new BrokerService();
-            broker.setBrokerName("CamelComponentExercise");
-            broker.addConnector("tcp://localhost:61616");
-            broker.start();
+        ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
 
-            ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
+        Thread.sleep(60000);
 
-            Thread.sleep(60000);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
+        broker.stop();
     }
 }

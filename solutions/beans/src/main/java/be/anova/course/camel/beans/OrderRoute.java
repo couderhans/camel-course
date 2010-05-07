@@ -22,7 +22,7 @@ public class OrderRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
 
-        from("file:src/main/resources/be/anova/course/camel/orders/in")
+        from("file:src/main/resources/orders?noop=true")
                 .to("file:target/audit")
                 .beanRef("orderService", "enrich")
                 .beanRef("orderService","process")

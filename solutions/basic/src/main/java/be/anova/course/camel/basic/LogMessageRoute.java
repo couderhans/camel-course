@@ -26,20 +26,17 @@ import org.apache.camel.builder.RouteBuilder;
 
 public class LogMessageRoute extends RouteBuilder {
 
-    private static final DateFormat DATE_FORMAT = new SimpleDateFormat(
-            "yyyyMMddhhmmssSSS");
+    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMddhhmmssSSS");
 
     @Override
     public void configure() throws Exception {
 
-        from("timer://test?fixedRate=true&period=5000").process(
-                new Processor() {
-                    public void process(Exchange exchange) throws Exception {
-                        exchange.getIn()
-                                .setBody(DATE_FORMAT.format(new Date()));
-                    }
-                }).to("log:test");
-
+        from("timer://test?fixedRate=true&period=5000")
+            .process(new Processor() {
+                public void process(Exchange exchange) throws Exception {
+                    exchange.getIn().setBody(DATE_FORMAT.format(new Date()));
+                }
+            }).to("log:test");
     }
 
 }

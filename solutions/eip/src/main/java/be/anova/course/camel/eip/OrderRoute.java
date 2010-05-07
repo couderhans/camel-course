@@ -24,29 +24,27 @@ import static org.apache.camel.builder.xml.XPathBuilder.xpath;
 
 public class OrderRoute extends RouteBuilder {
     
-    private static Namespaces NAMESPACES = new Namespaces("ord", "http://www.anova.be/schemata/Order/v1");
-
     @Override
     public void configure() throws Exception {
 
-        from("file:src/main/resources/be/anova/course/camel/orders/in")
+        from("file:src/main/resources/be/anova/course/camel/orders/in?noop=true")
                 .wireTap("file:target/orders/audit")
                 .to("direct:orders");
 
-        from("direct:orders").split().xpath("//ord:orders/ord:order", NAMESPACES)
+        from("direct:orders").split().xpath("//orders/order")
                 .convertBodyTo(String.class).to("direct:qty").to("log:order");
         
         from("direct:qty")
-            .choice().when().xpath("//ord:order/ord:articles/ord:article/ord:quantity='0'", NAMESPACES)
+            .choice().when().xpath("//order/articles/article/quantity='0'")
             .to("log:empty-orders")
             .otherwise().to("direct:order");
 
         from("direct:order")
-                .setHeader("externalid",xpath("/ord:order/@externalid").namespaces(NAMESPACES))
+                .setHeader("externalid",xpath("/order/@externalid"))
                 .setHeader(Exchange.FILE_NAME,simpleExpression("${header.externalid}.xml"))
-                .choice().when().xpath("//ord:order/ord:customer/@country='Scotland'", NAMESPACES)
+                .choice().when().xpath("//order/customer/@country='Scotland'")
                 .to("file:target/orders/Scotland")
-                .when().xpath("//ord:order/ord:customer/@country='Belgium'", NAMESPACES)
+                .when().xpath("//order/customer/@country='Belgium'")
                 .to("file:target/orders/Belgium")
                 .otherwise().to("file:target/orders/Other");
 

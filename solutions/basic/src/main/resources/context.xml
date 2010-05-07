@@ -21,7 +21,7 @@ permissions and limitations under the License.
     <camel:package>be.anova.course.camel.basic</camel:package>
 
     <camel:route>
-      <camel:from uri="file:src/main/resources/be/anova/course/camel/logmessages/in" />
+      <camel:from uri="file:src/main/resources/be/anova/course/camel/logmessages/in?noop=true" />
       <camel:process ref="myProcessor" />
       <camel:to uri="file:target/logmessages/out" />
     </camel:route>
