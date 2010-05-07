@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package be.anova.course.camel.routebuilders;
+package be.anova.course.camel.eip;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
@@ -30,20 +30,25 @@ public class OrderRoute extends RouteBuilder {
     public void configure() throws Exception {
 
         from("file:src/main/resources/be/anova/course/camel/orders/in")
-                .wireTap("file:src/main/resources/be/anova/course/camel/orders/audit")
+                .wireTap("file:target/orders/audit")
                 .to("direct:orders");
 
         from("direct:orders").split().xpath("//ord:orders/ord:order", NAMESPACES)
-                .convertBodyTo(String.class).to("direct:order");
+                .convertBodyTo(String.class).to("direct:qty").to("log:order");
+        
+        from("direct:qty")
+            .choice().when().xpath("//ord:order/ord:articles/ord:article/ord:quantity='0'", NAMESPACES)
+            .to("log:empty-orders")
+            .otherwise().to("direct:order");
 
         from("direct:order")
                 .setHeader("externalid",xpath("/ord:order/@externalid").namespaces(NAMESPACES))
                 .setHeader(Exchange.FILE_NAME,simpleExpression("${header.externalid}.xml"))
                 .choice().when().xpath("//ord:order/ord:customer/@country='Scotland'", NAMESPACES)
-                .to("file:src/main/resources/be/anova/course/camel/orders/out/Scotland")
+                .to("file:target/orders/Scotland")
                 .when().xpath("//ord:order/ord:customer/@country='Belgium'", NAMESPACES)
-                .to("file:src/main/resources/be/anova/course/camel/orders/out/Belgium")
-                .otherwise().to("file:src/main/resources/be/anova/course/camel/orders/out/Other");
+                .to("file:target/orders/Belgium")
+                .otherwise().to("file:target/orders/Other");
 
     }
 
