@@ -44,7 +44,7 @@ public class MailMessageRoute extends RouteBuilder {
 				public void process(Exchange exchange) throws Exception {
 					Map<String, Object> headers = exchange.getIn().getHeaders();
 					headers.put("From", "test.anova.rd@gmail.com");
-					headers.put("To", "hans.couder@gmail.com");
+					headers.put("To", "test@email.com");
 					headers.put("Subject", "Order confirmation");
 				}
 		    	
